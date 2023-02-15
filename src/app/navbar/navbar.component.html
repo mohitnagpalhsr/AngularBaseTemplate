@@ -17,7 +17,7 @@
             <a class="nav-link " routerLink="home" >Home</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="#">Sports</a>
+            <a class="nav-link" routerLink="sports">Sports</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Players</a>
@@ -26,10 +26,12 @@
             <a class="nav-link" href="#">Participation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="login">Login</a>
+            <a class="nav-link" routerLink="register">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="register">Register</a>
+            <a class="nav-link" routerLink="/login" *ngIf="!isUserAuthenticated()">Login</a>
+            <a class="nav-link" *ngIf="isUserAuthenticated()" (click)="logOut()">Logout</a>
+            <!-- <a class="nav-link" routerLink="login">login</a> -->
           </li>
         </ul>
       </div>

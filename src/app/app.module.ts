@@ -13,6 +13,17 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AuthGuard } from './guards/auth.guard';
+
+import { JwtModule } from "@auth0/angular-jwt";
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SportsComponent } from './sports/sports.component';
+
+export function tokenGetter() { 
+  return localStorage.getItem("jwt"); 
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SportsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +40,17 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     RouterModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:5001"],
+        disallowedRoutes: []
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
