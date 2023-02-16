@@ -1,11 +1,17 @@
 <div class="row mb-4">
 </div>
 
+<div class="row mb-4">
+</div>
+<div class="row mb-5">
+</div>
+<div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
+
 <div class="mx-auto" style="width: 400px;">
     <h1 class="text-center">Login</h1>
   <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-    <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
-    <br/>
+    
+    
     <!-- Email input -->
     <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
       <label class="form-label" for="username">Email address</label>
@@ -34,8 +40,16 @@
     </div>
   
     <!-- Register buttons -->
-    <div class="text-center">
+    <!-- <div class="text-center">
       <p>Not a member? <a routerLink="register">Register</a></p>
+    </div> -->
+    <div class="row mb-4">
+    </div>
+    <div class="row mb-4">
+    </div>
+    <div class="row mb-4">
+    </div>
+    <div class="row mb-5">
     </div>
   </form>
 </div>
