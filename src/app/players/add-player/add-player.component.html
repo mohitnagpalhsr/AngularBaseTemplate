@@ -1,0 +1,32 @@
+<div><br/>
+    <form #prform="ngForm" (ngSubmit)="saveplayer(prform.value)" class="was-validated">
+    
+        Enter Player Name:
+        <input type="text" name="playerName" [(ngModel)]="p.playerName" #pname=ngModel minlength="5" required/><br/><br/>
+        
+    
+        Enter Age:
+        <input type="number" name="age" [(ngModel)]="p.age" #price=ngModel required/><br/><br/>
+        <!--<span class="invalid-feedback" *ngIf="age.touched && age.invalid">Age is mandatory </span><br/><br/> -->
+    
+        Enter Contact Number:
+        <input type="text" name="contactNumber" [(ngModel)]="p.contactNumber" #pname=ngModel minlength="10" required/><br/><br/>
+        <!--<span class="invalid-feedback" *ngIf="contactNumber.touched && contactNumber.invalid">Contact number should be minimum of 10 characters </span><br/><br> -->
+    
+        Enter Email:
+        <input type="text" name="email" [(ngModel)]="p.email" #pname=ngModel required/><br/><br/>
+        <!--<span class="invalid-feedback" *ngIf="email.touched && email.invalid">Email is mandatory </span><br/><br> -->
+    
+        Enter Gender:
+        <input type="text" name="gender" [(ngModel)]="p.gender" #pname=ngModel /><br/><br/>
+    
+        Enter Sports Name:
+        <input type="text" name="sportsName" [(ngModel)]="p.sportsName" #pname=ngModel required/><br/><br/>
+    
+        <input type="submit" [disabled]=!prform.valid  value="Add Player" class="primary"/><br/><br/>
+        <button type="reset" > Clear </button>
+        <br/><br/>
+    </form>
+    <h4 *ngIf="message!=null">{{message}} </h4>
+    </div>
+    {{prform.value|json}}

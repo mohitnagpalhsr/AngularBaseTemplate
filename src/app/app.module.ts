@@ -19,6 +19,9 @@ import { JwtModule } from "@auth0/angular-jwt";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SportsComponent } from './sports/sports.component';
+import { PlayersComponent } from './players/players.component';
+import { AddPlayerComponent } from './players/add-player/add-player.component';
+import { ViewPlayersComponent } from './players/view-players/view-players.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -32,7 +35,10 @@ export function tokenGetter() {
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    SportsComponent
+    SportsComponent,
+    PlayersComponent,
+    AddPlayerComponent,
+    ViewPlayersComponent
   ],
   imports: [
     BrowserModule,

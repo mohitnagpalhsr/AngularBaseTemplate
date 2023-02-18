@@ -1,0 +1,30 @@
+<div style="margin-top: 20px;">
+    <table class="table">
+        <thead>
+        <tr>
+            <th> Player ID </th>
+            <th> Player Name </th>
+            <th> Age </th>
+            <th> Contact Number </th>
+            <th> Email </th>
+            <th> Gender </th>
+            <th> Sports Name </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of playerlist">
+            <td>{{p.playerId}}</td>
+            <td>{{p.playerName}}</td>
+            <td>{{p.age}}</td>
+            <td>{{p.contactNumber}}</td>
+            <td>{{p.email}}</td>
+            <td>{{p.gender}}</td>
+            <td>{{p.sportsName}}</td>
+            <td>
+                <button type=button class="btn btn-primary"  (click)="clickMethod(p)">Remove</button>
+            </td> 
+            </tr>
+        </tbody>
+    </table>
+    <h4 *ngIf="message!=null">{{message}} </h4>
+</div>

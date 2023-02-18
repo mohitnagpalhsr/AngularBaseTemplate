@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  router:Router;
   constructor(private jwtHelper: JwtHelperService) { }
 
   ngOnInit(): void {
@@ -25,5 +27,6 @@ export class NavbarComponent {
   logOut = () => {
     localStorage.removeItem("jwt");
     localStorage.removeItem("refreshToken");
+    this.router.navigate(["/"]);
   }
 }
