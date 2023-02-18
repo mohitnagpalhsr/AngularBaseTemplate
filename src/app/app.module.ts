@@ -29,6 +29,13 @@ import { CreateEventComponent } from './sports/create-event/create-event.compone
 import { UpdateEventComponent } from './sports/update-event/update-event.component';
 import { CancelEventComponent } from './sports/cancel-event/cancel-event.component';
 import { ViewEventByNameComponent } from './sports/view-event-by-name/view-event-by-name.component';
+import { ParticipationsComponent } from './participations/participations.component';
+import { AddParticipationComponent } from './participations/add-participation/add-participation.component';
+import { ViewParticipationsComponent } from './participations/view-participations/view-participations.component';
+import { EditParticipationsComponent } from './participations/edit-participations/edit-participations.component';
+import { ApprovedParticipationsComponent } from './participations/participations-status/approved-participations/approved-participations.component';
+import { PendingParticipationsComponent } from './participations/participations-status/pending-participations/pending-participations.component';
+import { DeclinedParticipationsComponent } from './participations/participations-status/declined-participations/declined-participations.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -52,7 +59,14 @@ export function tokenGetter() {
     CreateEventComponent,
     UpdateEventComponent,
     CancelEventComponent,
-    ViewEventByNameComponent
+    ViewEventByNameComponent,
+    ParticipationsComponent,
+    AddParticipationComponent,
+    ViewParticipationsComponent,
+    EditParticipationsComponent,
+    ApprovedParticipationsComponent,
+    PendingParticipationsComponent,
+    DeclinedParticipationsComponent
   ],
   imports: [
     BrowserModule,

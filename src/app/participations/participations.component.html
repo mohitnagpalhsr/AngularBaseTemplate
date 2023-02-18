@@ -1,0 +1,14 @@
+<div *ngIf="user">
+    <h1>Hello user</h1>
+  </div>
+  
+  <div *ngIf="admin">
+    <h1>Hello admin</h1>
+    <a routerLink="viewparticipations">View Participations  </a>
+    <a routerLink="addparticipation">Add Participation  </a>
+    <a routerLink="approvedparticipations">Approved Participations  </a>
+    <a routerLink="pendingparticipations">Pending Participations  </a>
+    <a routerLink="declinedparticipations">Declined Participations  </a>
+    
+    <router-outlet></router-outlet>
+  </div>

@@ -1,0 +1,28 @@
+<div><br/>
+    <form #prform="ngForm" (ngSubmit)="saveplayer(prform.value)" class="was-validated">
+    
+        Enter playerId:
+        <input type="number" name="playerId" [(ngModel)]="p.playerId" #playerId=ngModel required/><br/><br/>
+        
+    
+        Enter Player Name:
+        <input type="text" name="playerName" [(ngModel)]="p.playerName" #playerName=ngModel required/><br/><br/>
+    
+        Enter Event Id:
+        <input type="number" name="eventId" [(ngModel)]="p.eventId" #eventId=ngModel required/><br/><br/>
+    
+        Enter Event Name:
+        <input type="text" name="eventName" [(ngModel)]="p.eventName" #eventName=ngModel required/><br/><br/>
+    
+        Enter Sports Id:
+        <input type="number" name="sportsId" [(ngModel)]="p.sportsId" #sportsId=ngModel required/><br/><br/>
+    
+        Enter Sports Name:
+        <input type="text" name="sportsName" [(ngModel)]="p.sportsName" #sportsName=ngModel required/><br/><br/>
+    
+        <input type="submit" [disabled]=!prform.valid  value="Add Participation" class="primary"/><br/><br/>
+        <button type="reset" > Clear </button>
+        <br/><br/>
+    </form>
+    <h4 *ngIf="message!=null">{{message}} </h4>
+    </div>

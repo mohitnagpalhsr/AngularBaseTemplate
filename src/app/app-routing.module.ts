@@ -14,6 +14,13 @@ import { ViewSportByNameComponent } from './sports/view-sport-by-name/view-sport
 import { ViewEventByNameComponent } from './sports/view-event-by-name/view-event-by-name.component';
 import { CreateEventComponent } from './sports/create-event/create-event.component';
 import { CancelEventComponent } from './sports/cancel-event/cancel-event.component';
+import { ParticipationsComponent } from './participations/participations.component';
+import { AddParticipationComponent } from './participations/add-participation/add-participation.component';
+import { ViewParticipationsComponent } from './participations/view-participations/view-participations.component';
+import { EditParticipationsComponent } from './participations/edit-participations/edit-participations.component';
+import { ApprovedParticipationsComponent } from './participations/participations-status/approved-participations/approved-participations.component';
+import { PendingParticipationsComponent } from './participations/participations-status/pending-participations/pending-participations.component';
+import { DeclinedParticipationsComponent } from './participations/participations-status/declined-participations/declined-participations.component';
 
 const routes: Routes = [
   {path:'', title:'Home', component:HomeComponent},
@@ -90,7 +97,55 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       }
     ]
-  }  
+  },
+  {
+    path: '', pathMatch: 'full', redirectTo: 'participations'
+  },
+  {
+    path: 'participations',
+    title:'Participations',
+    component: ParticipationsComponent,
+    canActivate: [AuthGuard],
+    children: [
+        {
+           path: 'addparticipation',
+           title:'Add Participation',
+           component: AddParticipationComponent,
+           canActivate: [AuthGuard]
+        },
+        {
+           path: 'viewparticipations',
+           title:'View Participations',
+           component: ViewParticipationsComponent,
+           canActivate: [AuthGuard]
+        },
+        {
+          path: 'editparticipation/:id',
+          title:'Edit Participations',
+          component: EditParticipationsComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'approvedparticipations',
+          title:'Approved Participations',
+          component: ApprovedParticipationsComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'pendingparticipations',
+          title:'Pending Participations',
+          component: PendingParticipationsComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'declinedparticipations',
+          title:'Declined Participations',
+          component: DeclinedParticipationsComponent,
+          canActivate: [AuthGuard]
+        }
+    ]
+  },
+  {path:'participations', component:ParticipationsComponent}  
 ];
 
 @NgModule({

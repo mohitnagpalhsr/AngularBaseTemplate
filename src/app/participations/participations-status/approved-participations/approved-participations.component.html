@@ -1,0 +1,31 @@
+<div style="margin-top: 20px;">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Participation ID </th>
+            <th>Player ID</th>
+            <th>Player Name</th>
+            <th>Event ID</th>
+            <th>Event Name</th>
+            <th>Sports ID</th>
+            <th>Sports Name</th>
+            <th>Status</th>
+            <th>Comments</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of plist">
+            <td>{{p.participationId}}</td>
+            <td>{{p.playerId}}</td>
+            <td>{{p. playerName}}</td>
+            <td>{{p.eventId}}</td>
+            <td>{{p.eventName}}</td>
+            <td>{{p.sportsId}}</td>
+            <td>{{p.sportsName}}</td>
+            <td>{{p.status}}</td>
+            <td>{{p.comments}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
