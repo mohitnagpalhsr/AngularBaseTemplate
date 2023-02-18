@@ -1,0 +1,27 @@
+<form >
+    <input type="text" name="sportName" [(ngModel)]="sportname" #sportName=ngModel required/>
+    <input type="submit" (click)="getSportByName()">
+    
+    </form>
+    
+    <table class="table">
+            <thead>
+            <tr>
+                <th> Sport ID </th>
+                <th>SportsName</th>
+                <th> No of Players</th>
+                <th>Sports Type </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>{{s.sportsId}}</td>
+            <td>{{s.sportsName}}</td>
+            <td>{{s.noOfPlayers}}</td>
+            <td>{{s.sportsType}}</td>
+    
+                
+                </tr>
+            </tbody>
+        </table>

@@ -1,0 +1,30 @@
+<div>
+
+    <form #prform="ngForm" (ngSubmit)="saveevent(prform.value)" class="was-validated">
+        
+        <!-- <input type="number" name="eventId" [(ngModel)]="e.eventId" #eventId=ngModel required/>
+        <span class="invalid-feedback" *ngIf="eventId.touched && eventId.invalid">EventId is mandatory field</span><br/><br/>
+     -->
+        Enter EventName:
+        <input type="text" name="eventName" [(ngModel)]="e.eventName" #eventName=ngModel minlength="7" required/>
+        <span class="invalid-feedback" *ngIf="eventName.touched && eventName.invalid">Event name should be minimum of 5 characters </span><br/><br/>
+    
+        Enter EventDate:
+        <input type="date" name="eventDate" [(ngModel)]="e.eventDate" #eventDate=ngModel />
+        <br/><br/>
+
+        Enter NoOfSlots:
+        <input type="number" name="noofSlots" [(ngModel)]="e.noofSlots" #noofSlots=ngModel required/>
+        <span class="invalid-feedback" *ngIf="noofSlots.touched && noofSlots.invalid"></span><br/><br/>
+    
+        Enter SportsName:
+        <input type="text" name="sportsName" [(ngModel)]="e.sportsName" #sportsName=ngModel min="7" />
+        <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span><br/><br/>
+
+    
+        <input type="submit" [disabled]=!prform.valid click="save()" value="Update" class="primary"/>
+        <button type="reset" > Clear </button>
+        <br/><br/>
+    </form>
+    </div>
+    {{prform.value|json}}

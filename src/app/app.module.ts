@@ -22,6 +22,13 @@ import { SportsComponent } from './sports/sports.component';
 import { PlayersComponent } from './players/players.component';
 import { AddPlayerComponent } from './players/add-player/add-player.component';
 import { ViewPlayersComponent } from './players/view-players/view-players.component';
+import { ViewSportsComponent } from './sports/view-sports/view-sports.component';
+import { ViewSportByNameComponent } from './sports/view-sport-by-name/view-sport-by-name.component';
+import { ViewEventsComponent } from './sports/view-events/view-events.component';
+import { CreateEventComponent } from './sports/create-event/create-event.component';
+import { UpdateEventComponent } from './sports/update-event/update-event.component';
+import { CancelEventComponent } from './sports/cancel-event/cancel-event.component';
+import { ViewEventByNameComponent } from './sports/view-event-by-name/view-event-by-name.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -38,7 +45,14 @@ export function tokenGetter() {
     SportsComponent,
     PlayersComponent,
     AddPlayerComponent,
-    ViewPlayersComponent
+    ViewPlayersComponent,
+    ViewSportsComponent,
+    ViewSportByNameComponent,
+    ViewEventsComponent,
+    CreateEventComponent,
+    UpdateEventComponent,
+    CancelEventComponent,
+    ViewEventByNameComponent
   ],
   imports: [
     BrowserModule,

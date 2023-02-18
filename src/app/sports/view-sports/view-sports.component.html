@@ -1,0 +1,22 @@
+<div style="margin-top: 100px;">
+    <table class="table">
+        <thead>
+        <tr>
+            <th> Sport ID </th>
+            <th>SportsName</th>
+            <th> No of Players</th>
+            <th>Sports Type </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of slist">
+            <td>{{s.sportsId}}</td>
+            <td>{{s.sportsName}}</td>
+            <td>{{s.noOfPlayers}}</td>
+            <td>{{s.sportsType}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

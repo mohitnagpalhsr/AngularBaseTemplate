@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  router:Router;
-  constructor(private jwtHelper: JwtHelperService) { }
+
+  constructor(private jwtHelper: JwtHelperService, private router: Router) { }
 
   ngOnInit(): void {
   }

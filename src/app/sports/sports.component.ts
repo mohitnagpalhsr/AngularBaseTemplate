@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-sports',
@@ -19,4 +21,10 @@ export class SportsComponent {
   //     error: (err: HttpErrorResponse) => console.log(err)
   //   })
   // }
+  searchForm:FormGroup=new FormGroup({
+    search:new FormControl('')
+  })
+  title = 'SportsEvent';
+  user=false;
+  admin=true;
 }

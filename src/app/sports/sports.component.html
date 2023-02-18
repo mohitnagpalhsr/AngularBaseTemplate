@@ -43,3 +43,43 @@
       </table>
   </div>
 </div>
+
+<div *ngIf="user">
+  <h1>Hello user</h1>
+</div>
+<div *ngIf="admin">
+  <h1>Hello Admin</h1>
+</div>
+ <nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+     <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="viewevents">List of Events</a>
+        
+
+      </li><br>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="addevent">Add Events</a>
+        
+      </li><br>
+    
+    <li class="nav-item">
+      <a class="nav-link" routerLink="viewsports">List of Sports</a>
+      
+    </li><br>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="vieweventbyname">Event by name</a>
+      
+    </li><br>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="viewsportbyname">Sport by name</a>
+      
+    </li>
+    
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

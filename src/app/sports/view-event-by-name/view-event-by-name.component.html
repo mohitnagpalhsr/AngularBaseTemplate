@@ -1,0 +1,28 @@
+
+<form >
+    <input type="text" name="eventName" [(ngModel)]="eventname" #eventName=ngModel required/>
+    <input type="submit" (click)="getEventByName()">
+    
+    </form>
+    
+    <table class="table">
+            <thead>
+            <tr>
+                <th> Event ID </th>
+                <th> Event Date </th>
+                <th> Event Name</th>
+                <th> No of slots</th>
+                <th> SportsName</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{e.eventId}}</td>
+                <td>{{e.eventDate}}</td>
+                <td>{{e.eventName}}</td>
+                <td>{{e.noofSlots}}</td>
+                <td>{{e.sportsName}}</td>
+            </tr>
+            </tbody>
+        </table>
+    

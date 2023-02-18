@@ -1,0 +1,29 @@
+<div style="margin-top: 100px;">
+    <table class="table">
+        <thead>
+        <tr>
+            <th> Event ID </th>
+            <th> Event Date </th>
+            <th> Event Name</th>
+            <th> No of slots</th>
+            <th> SportsName</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of elist">
+            <td>{{e.eventId}}</td>
+            <td>{{e.eventDate}}</td>
+            <td>{{e.eventName}}</td>
+            <td>{{e.noofSlots}}</td>
+            <td>{{e.sportsName}}</td>
+
+            <td>
+              <!--<a routerLink="/edit/{{e.eventId}}">Edit |</a>-->
+             <button type="button" class="btn btn-primary" (click)="clickMethod(e)">Delete</button>
+            </td>
+            
+            </tr>
+        </tbody>
+    </table>
+</div>
