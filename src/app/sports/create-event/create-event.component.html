@@ -1,30 +1,88 @@
-<div>
+<!-- <h2 class="text-center" style="padding: 1%;">Add Event</h2>
 
-    <form #prform="ngForm" (ngSubmit)="saveevent(prform.value)" class="was-validated">
+<div class="row mb-4">
+</div>
+
+<div class="text-center">
+
+    <form #prform="ngForm" (ngSubmit)="saveevent(prform.value)" class="was-validated"> -->
         
         <!-- <input type="number" name="eventId" [(ngModel)]="e.eventId" #eventId=ngModel required/>
         <span class="invalid-feedback" *ngIf="eventId.touched && eventId.invalid">EventId is mandatory field</span><br/><br/>
      -->
-        Enter EventName:
-        <input type="text" name="eventName" [(ngModel)]="e.eventName" #eventName=ngModel minlength="7" required/>
+        <!-- Enter Event Name:
+        <input type="text" name="eventName" [(ngModel)]="e.eventName" #eventName=ngModel minlength="5" required/>
         <span class="invalid-feedback" *ngIf="eventName.touched && eventName.invalid">Event name should be minimum of 5 characters </span><br/><br/>
     
-        Enter EventDate:
+        Enter Event Date:
         <input type="date" name="eventDate" [(ngModel)]="e.eventDate" #eventDate=ngModel />
         <br/><br/>
 
-        Enter NoOfSlots:
+        Enter No Of Slots:
         <input type="number" name="noofSlots" [(ngModel)]="e.noofSlots" #noofSlots=ngModel required/>
         <span class="invalid-feedback" *ngIf="noofSlots.touched && noofSlots.invalid"></span><br/><br/>
     
-        Enter SportsName:
-        <input type="text" name="sportsName" [(ngModel)]="e.sportsName" #sportsName=ngModel min="7" />
+        Enter Sports Name:
+        <input type="text" name="sportsName" [(ngModel)]="e.sportsName" #sportsName=ngModel min="7" required/>
         <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span><br/><br/>
 
-    
-        <input type="submit" [disabled]=!prform.valid click="save()" value="Update" class="primary"/>
-        <button type="reset" > Clear </button>
+        
+
+        <div class="col-auto">
+            <button type="submit" [disabled]=!prform.valid click="save()"  class="btn btn-primary">Submit</button>
+            &nbsp;
+            <button type="reset" class="btn btn-primary"> Clear </button>
+        </div>
+        
         <br/><br/>
     </form>
     </div>
-    {{prform.value|json}}
+    {{message}}
+
+    <div class="text-center">
+    
+    </div>
+
+
+
+
+     -->
+
+
+
+    <div class="mx-auto" style="width: 400px;">
+        <h2 class="text-center">Add Event</h2>
+      <form #prform="ngForm" (ngSubmit)="saveevent(prform.value)">
+        
+        
+        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="username">Event Name</label>
+          <input type="text" name="eventName" [(ngModel)]="e.eventName" #eventName=ngModel maxlength="40" class="form-control" required />
+          <span class="invalid-feedback" *ngIf="eventName.touched && eventName.invalid">Event name should be minimum of 5 characters </span>
+        </div>
+      
+        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="password">Event Date</label>
+          <input type="date" name="eventDate" [(ngModel)]="e.eventDate" #eventDate=ngModel class="form-control" required/>
+        </div>
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="username">No. of slots</label>
+            <input type="number" name="noofSlots" [(ngModel)]="e.noofSlots" #noofSlots=ngModel class="form-control"
+            max="10" required />
+            <span class="invalid-feedback" *ngIf="noofSlots.touched && noofSlots.invalid"></span>
+        </div>
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="username">Sports Name</label>
+            <input type="text" name="sportsName" [(ngModel)]="e.sportsName" #sportsName=ngModel maxlength="20" class="form-control" required />
+            <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span>
+        </div>
+
+        <div class="text-center">
+        <button type="button" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!prform.valid" style="background-color: #3b71ca; width: 40%;">Add</button>
+        
+        <h3 *ngIf="message!=null">{{message}}</h3>
+        </div>

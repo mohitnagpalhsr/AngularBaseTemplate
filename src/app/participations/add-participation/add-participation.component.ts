@@ -16,7 +16,7 @@ export class AddParticipationComponent implements OnInit{
   p:Participation={participationId:null,playerId:null,playerName:"",eventId:null,eventName:"",sportsId:null,sportsName:"",status:"",comments:""};  
   message:string;
   
-  saveplayer(data:any):void
+  saveparticipation(data:any):void
   {
    this.participationservice.addparticipation(data).subscribe(
      data=>{

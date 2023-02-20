@@ -1,1 +1,35 @@
-<p>update-event works!</p>
+<!-- <div class="mx-auto" style="width: 400px;">
+    <h2 class="text-center">Add Event</h2>
+  <form #prform="ngForm" (ngSubmit)="saveevent(prform.value)">
+    
+    
+    
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+      <label class="form-label" for="username">Event Name</label>
+      <input type="text" name="eventName" [(ngModel)]="e.eventName" #eventName=ngModel minlength="5" class="form-control" required />
+      <span class="invalid-feedback" *ngIf="eventName.touched && eventName.invalid">Event name should be minimum of 5 characters </span>
+    </div>
+  
+    
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+      <label class="form-label" for="password">Event Date</label>
+      <input type="date" name="eventDate" [(ngModel)]="e.eventDate" #eventDate=ngModel class="form-control" required/>
+    </div>
+
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="username">No. of slots</label>
+        <input type="number" name="noofSlots" [(ngModel)]="e.noofSlots" #noofSlots=ngModel class="form-control" required />
+        <span class="invalid-feedback" *ngIf="noofSlots.touched && noofSlots.invalid"></span>
+    </div>
+
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="username">Sports Name</label>
+        <input type="text" name="sportsName" [(ngModel)]="e.sportsName" #sportsName=ngModel min="7" class="form-control" required />
+        <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span>
+    </div>
+    
+    <div class="text-center">
+    <button type="button" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!prform.valid" style="background-color: #3b71ca; width: 40%;">Add</button>
+    
+    <h3 *ngIf="message!=null">{{message}}</h3>
+    </div> -->

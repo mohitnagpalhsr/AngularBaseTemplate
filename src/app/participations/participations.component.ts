@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
 })
 export class ParticipationsComponent {
   title = 'ParticipationAngular';
-  user=false;
-  admin=true;
+  role=localStorage.getItem("role");
 }

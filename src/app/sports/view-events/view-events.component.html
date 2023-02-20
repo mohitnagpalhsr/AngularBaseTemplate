@@ -1,4 +1,4 @@
-<div style="margin-top: 100px;">
+<!-- <div style="margin-top: 100px;">
     <table class="table">
         <thead>
         <tr>
@@ -18,12 +18,60 @@
             <td>{{e.noofSlots}}</td>
             <td>{{e.sportsName}}</td>
 
-            <td>
+            <td> -->
               <!--<a routerLink="/edit/{{e.eventId}}">Edit |</a>-->
-             <button type="button" class="btn btn-primary" (click)="clickMethod(e)">Delete</button>
+             <!-- <button type="button" class="btn btn-primary" (click)="clickMethod(e)">Cancel</button>
             </td>
             
             </tr>
         </tbody>
     </table>
+    {{message}}
+</div> -->
+
+<h2 class="text-center" style="padding: 1%;">Events List</h2>
+
+<div class="row mb-4">
 </div>
+
+
+<div class="row justify-content-center mx-auto text-center">
+    <div class="col-5">
+      <table class="table table-responsive table-bordered text-center">
+        
+          <thead class="table-light">
+            <tr>
+              <!-- <th scope="col">#</th> -->
+              <th scope="col">Event ID</th>
+              <th scope="col">Event Date</th>
+              <th scope="col">Event Name</th>
+              <th scope="col">No of slots</th>
+              <th scope="col">Sports Name</th>
+              <th scope="col" *ngIf="role=='admin'">Cancel Event</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let e of elist">
+              <!-- <th scope="row">1</th> -->
+              <td>{{e.eventId}}</td>
+            <td>{{e.eventDate | date : 'yyyy-MM-dd'}}</td>
+            <td>{{e.eventName}}</td>
+            <td>{{e.noofSlots}}</td>
+            <td>{{e.sportsName}}</td>
+            <td *ngIf="role=='admin'">
+                <!--<a routerLink="/edit/{{e.eventId}}">Edit |</a>-->
+               <button type="button" class="btn btn-primary" (click)="clickMethod(e)">Cancel</button>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <h3 *ngIf="message!=null">{{message}}</h3>
+    </div>
+  </div>
+
+
+  <div class="row mb-4">
+  </div>
+  <div class="row mb-4">
+  </div>

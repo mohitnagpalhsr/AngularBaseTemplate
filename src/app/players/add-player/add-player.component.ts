@@ -9,7 +9,6 @@ import { PlayersService } from 'src/app/players.service';
   styleUrls: ['./add-player.component.css']
 })
 export class AddPlayerComponent {
-  
   constructor(private playerservice:PlayersService){
 
   }

@@ -13,6 +13,7 @@ export class ViewEventsComponent {
   message:string;
   elist:Event[];
   e:Event[];
+  role=localStorage.getItem("role");
   constructor(private eventservice:EventsService) {}
   ngOnInit(): void {
     this.eventservice.getevents().subscribe(
@@ -25,10 +26,10 @@ export class ViewEventsComponent {
 
   clickMethod(event:Event) 
   {
-    if(confirm("Are you sure to delete "+event.eventName)) {
+    if(confirm("Are you sure you want to cancel "+event.eventName + " event?")) {
       this.eventservice.deleteevent(event.eventId).subscribe()
       {
-        this.message="Product deleted Successfully";
+        this.message="Event Cancelled Successfully";
         this.elist = this.elist.filter(item => item.eventId !=event.eventId);
         console.log(this.elist.length);
       }

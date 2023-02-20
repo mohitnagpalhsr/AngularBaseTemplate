@@ -1,10 +1,26 @@
-<form >
-    <input type="text" name="sportName" [(ngModel)]="sportname" #sportName=ngModel required/>
-    <input type="submit" (click)="getSportByName()">
+<h2 class="text-center" style="padding: 1%;">Sport By Name</h2>
+
+<div class="row mb-4">
+</div>
+
+<div class="mx-auto text-center" style="width: 400px;">
+  <form>
+    <!-- <input type="text" name="sportName" [(ngModel)]="sportname" #sportName=ngModel required/>
+    &nbsp; -->
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+      <!-- <label class="form-label" for="age">Player Name</label> -->
+      <input type="text" name="sportName" maxlength="20" [(ngModel)]="sportname" #sportName=ngModel class="form-control" required/>
+    </div>
+    <button type="submit" (click)="getSportByName()" class="btn btn-primary">Search</button>
+  </form>
+</div>
+
+<div class="row mb-4">
+</div>
+<div class="row mb-4">
+</div>
     
-    </form>
-    
-    <table class="table">
+    <!-- <table class="table">
             <thead>
             <tr>
                 <th> Sport ID </th>
@@ -24,4 +40,38 @@
                 
                 </tr>
             </tbody>
-        </table>
+        </table> -->
+
+        <div class="row justify-content-center">
+            <div class="col-4">
+              <table class="table table-responsive table-bordered text-center">
+                
+                  <thead class="table-light">
+                    <tr>
+                      <!-- <th scope="col">#</th> -->
+                      <th scope="col">Sport ID</th>
+                      <th scope="col">SportsName</th>
+                      <th scope="col">No of Players</th>
+                      <th scope="col">Sports Type</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <tr>
+                      <!-- <th scope="row">1</th> -->
+                      <td>{{s.sportsId}}</td>
+                      <td>{{s.sportsName}}</td>
+                      <td>{{s.noOfPlayers}}</td>
+                      <td>{{s.sportsType}}</td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+            </div>
+          </div>
+
+        <div class="row mb-4">
+        </div>
+        <div class="row mb-4">
+        </div>
+        <div class="row mb-4">
+        </div>

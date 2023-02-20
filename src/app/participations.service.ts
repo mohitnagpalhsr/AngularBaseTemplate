@@ -10,7 +10,7 @@ export class ParticipationsService {
 
   p:Participation={participationId:null,playerId:null,playerName:"",eventId:null,eventName:"",sportsId:null,sportsName:"",status:"",comments:""};
   plist:any;
-  url:string="https://localhost:5010/api/Participation";
+  url:string="http://localhost:5026/api/Participation";
   
   constructor(private httpclient:HttpClient) 
   { 

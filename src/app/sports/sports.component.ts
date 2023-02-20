@@ -11,6 +11,7 @@ import { FormGroup } from '@angular/forms';
 export class SportsComponent {
   sports: any;
   hello="hello";
+  role=localStorage.getItem("role");
 
   // constructor(private http: HttpClient) { }
 

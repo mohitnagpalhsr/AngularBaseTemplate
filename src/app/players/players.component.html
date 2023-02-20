@@ -1,13 +1,22 @@
-<p>players works!</p>
 
-<div *ngIf="user">
+
+<!-- <div *ngIf="user">
     <h1>Hello user</h1>
 </div>
     
 <div *ngIf="admin">
     <h1>Hello admin</h1>
+</div> -->
+
+      
+
+<h1 class="text-center" style="padding: 2%;">Players</h1>
+
+<div class="text-center d-block">
+<button type="button" routerLink="viewplayers" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Players List</button>
+&nbsp;
+<button type="button" *ngIf="role=='admin'" routerLink="addplayer" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Add Player</button>
+&nbsp;
 </div>
 
-      <a routerLink="viewplayers"> View Players </a>
-      <a routerLink="addplayer"> Add Player </a>
-      <router-outlet></router-outlet>
+<router-outlet></router-outlet>

@@ -7,5 +7,5 @@ export interface Participation {
     sportsId:number;
     sportsName:string;
     status:string;
-    comments:String;
+    comments:string;
 }

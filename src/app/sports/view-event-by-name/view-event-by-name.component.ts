@@ -9,6 +9,9 @@ import { EventsService } from 'src/app/events.service';
 })
 export class ViewEventByNameComponent {
   eventname="";
+  message:string;
+  role=localStorage.getItem("role");
+
   e:Event={
     eventId:null,
     eventDate:null,
@@ -31,5 +34,16 @@ export class ViewEventByNameComponent {
           console.log(this.e);
       }
     );
+  }
+
+  clickMethod(event:Event) 
+  {
+    if(confirm("Are you sure you want to cancel "+event.eventName + " event?")) {
+      this.eventservice.deleteevent(event.eventId).subscribe()
+      {
+        this.message="Event Cancelled Successfully";
+        
+      }
+    }
   }
 }

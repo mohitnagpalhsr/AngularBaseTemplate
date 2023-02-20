@@ -9,7 +9,7 @@ import { Observable, throwError } from 'rxjs';
 export class AppService {
 
 
-  url:string="http://localhost:5185/api/Register"; 
+  url:string="http://localhost:5172/api/Register"; 
 
   constructor(private httpclient:HttpClient) { }
   

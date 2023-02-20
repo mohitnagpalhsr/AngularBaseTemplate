@@ -10,6 +10,7 @@ import { ParticipationsService } from 'src/app/participations.service';
 export class ViewParticipationsComponent {
   plist:Participation[];
   message:string;
+  role=localStorage.getItem("role");
 
   constructor(private participationservice:ParticipationsService) { }
 

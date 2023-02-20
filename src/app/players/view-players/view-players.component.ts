@@ -10,6 +10,7 @@ import { PlayersService } from 'src/app/players.service';
 export class ViewPlayersComponent {
   playerlist:Player[];
   message:string;
+  role=localStorage.getItem("role");
 
   constructor(private playerservice:PlayersService) { }
 
@@ -23,7 +24,7 @@ export class ViewPlayersComponent {
   }
 
   clickMethod(player:Player) {
-    if(confirm("Are you sure to remove "+player.playerName)) {
+    if(confirm("Are you sure to remove "+player.playerName + " as a player?")) {
       this.playerservice.removeplayer(player.playerId).subscribe()
       {
       this.message="Player Removed Successfully";

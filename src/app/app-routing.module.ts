@@ -52,7 +52,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '', pathMatch: 'full', redirectTo: 'events'
+    path: '', pathMatch: 'full', redirectTo: 'sports'
   },
   {
     path: 'sports',
@@ -92,7 +92,6 @@ const routes: Routes = [
       },
       {
         path: 'deleteevent',
-        
         component: CancelEventComponent,
         canActivate: [AuthGuard]
       }
@@ -144,8 +143,7 @@ const routes: Routes = [
           canActivate: [AuthGuard]
         }
     ]
-  },
-  {path:'participations', component:ParticipationsComponent}  
+  } 
 ];
 
 @NgModule({
