@@ -5,4 +5,5 @@ export interface Event
     eventName:string;
     noofSlots:number;
     sportsName:string;
+    status:string;
 }

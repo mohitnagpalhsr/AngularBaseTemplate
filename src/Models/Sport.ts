@@ -4,4 +4,5 @@ export interface Sport
     sportsType:string;
     noOfPlayers:number;
     sportsName:string;
+    status:string;
 }

@@ -1,6 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { Event } from 'src/Models/Event';
 import { EventsService } from 'src/app/events.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-event-by-name',
@@ -11,14 +12,17 @@ export class ViewEventByNameComponent {
   eventname="";
   message:string;
   role=localStorage.getItem("role");
+  nodata: boolean;
+  elist:any;
 
-  e:Event={
-    eventId:null,
-    eventDate:null,
-    eventName:"",
-    noofSlots:null,
-    sportsName:""
-}
+  // e:Event={
+  //   eventId:null,
+  //   eventDate:null,
+  //   eventName:"",
+  //   noofSlots:null,
+  //   sportsName:"",
+  //   status:""
+  // }
 
   constructor(private eventservice:EventsService) {}
 
@@ -28,12 +32,14 @@ export class ViewEventByNameComponent {
 
   getEventByName()
   {
-    this.eventservice.getEventByName(this.eventname).subscribe(
-      data=>{
-          this.e=data;
-          console.log(this.e);
-      }
-    );
+    this.eventservice.getEventsByName(this.eventname).subscribe({
+      next:data=>{
+          this.elist=data;
+          this.nodata=false;
+          console.log(this.elist);
+      },
+      error: (err: HttpErrorResponse) =>{ this.nodata = true; this.elist=null;}
+  })
   }
 
   clickMethod(event:Event) 

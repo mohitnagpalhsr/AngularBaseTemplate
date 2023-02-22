@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Player } from 'src/Models/Player';
 import { PlayersService } from 'src/app/players.service';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-players',
@@ -11,16 +12,19 @@ export class ViewPlayersComponent {
   playerlist:Player[];
   message:string;
   role=localStorage.getItem("role");
+  nodata:boolean;
 
   constructor(private playerservice:PlayersService) { }
 
 
   ngOnInit(): void {
-    this.playerservice.getplayers().subscribe(
-      data=>{
+    this.playerservice.getplayers().subscribe({
+      next: data => {
         this.playerlist=data;
-        console.log(this.playerlist);
-      });
+          console.log(this.playerlist);
+      },
+      error: (err: HttpErrorResponse) => this.nodata = true
+      })
   }
 
   clickMethod(player:Player) {

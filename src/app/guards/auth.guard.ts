@@ -1,4 +1,5 @@
 import { AuthenticatedResponse } from '../Models/AuthenticatedResponse.model';
+import { AuthenticationServiceService } from '../authentication-service.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
@@ -10,17 +11,22 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthGuard implements CanActivate  {
 
-  constructor(private router:Router, private jwtHelper: JwtHelperService, private http: HttpClient){}
+  constructor(private router:Router, private jwtHelper: JwtHelperService, private http: HttpClient, private auths: AuthenticationServiceService){}
   
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const token = localStorage.getItem("jwt");
+    const user = this.auths.role;
 
+    //checking for access token expiry
     if (token && !this.jwtHelper.isTokenExpired(token)){
       console.log(this.jwtHelper.decodeToken(token))
       return true;
     }
 
+    //checking for refresh token, if refresh token is found, then it will return true else it will navigate us to login
+    //page
     const isRefreshSuccess = await this.tryRefreshingTokens(token); 
+
     if (!isRefreshSuccess) { 
       this.router.navigate(["login"]); 
     }
@@ -28,7 +34,8 @@ export class AuthGuard implements CanActivate  {
     return isRefreshSuccess;
   }
 
-  private async tryRefreshingTokens(token: string): Promise<boolean> {
+
+private async tryRefreshingTokens(token: string): Promise<boolean> {
     // Try refreshing tokens using refresh token
     const refreshToken: string = localStorage.getItem("refreshToken");
     if (!token || !refreshToken) { 

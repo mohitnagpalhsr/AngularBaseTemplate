@@ -21,6 +21,8 @@ import { EditParticipationsComponent } from './participations/edit-participation
 import { ApprovedParticipationsComponent } from './participations/participations-status/approved-participations/approved-participations.component';
 import { PendingParticipationsComponent } from './participations/participations-status/pending-participations/pending-participations.component';
 import { DeclinedParticipationsComponent } from './participations/participations-status/declined-participations/declined-participations.component';
+import { UpdateEventComponent } from './sports/update-event/update-event.component';
+import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 
 const routes: Routes = [
   {path:'', title:'Home', component:HomeComponent},
@@ -48,7 +50,14 @@ const routes: Routes = [
            title:'View Players',
            component: ViewPlayersComponent,
            canActivate: [AuthGuard]
-        }
+        },
+        {
+          path: 'editplayer/:id',
+          title:'View Players',
+          component: EditPlayerComponent,
+          canActivate: [AuthGuard]
+       }
+        
     ]
   },
   {
@@ -90,11 +99,18 @@ const routes: Routes = [
         component: CreateEventComponent,
         canActivate: [AuthGuard]
       },
+      
       {
-        path: 'deleteevent',
-        component: CancelEventComponent,
+        path: 'editevent/:id',
+        component: UpdateEventComponent,
         canActivate: [AuthGuard]
       }
+
+      // {
+      //   path: 'deleteevent',
+      //   component: CancelEventComponent,
+      //   canActivate: [AuthGuard]
+      // }
     ]
   },
   {

@@ -9,7 +9,7 @@ import { Player } from 'src/Models/Player';
 
 export class PlayersService {
 
-  p:Player={playerId:null,playerName:"",age:null,contactNumber:"",email:"",gender:"",sportsName:""};
+  p:Player={playerId:null,playerName:"",age:null,contactNumber:"",email:"",gender:"",sportsName:"",status:""};
   plist:any;
   url:string="http://localhost:5009/api/Players";
   constructor(private httpclient:HttpClient) 
@@ -31,7 +31,6 @@ export class PlayersService {
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Method':'*'
-        
       })
     });
   }

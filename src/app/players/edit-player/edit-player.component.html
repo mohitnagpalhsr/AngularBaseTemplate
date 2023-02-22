@@ -3,20 +3,19 @@
 <div class="row mb-4">
 </div>
 
-
-    <!-- {{prform.value|json}} -->
-
-
-
-
-
-
-
     <div class="mx-auto" style="width: 400px;">
-        <h2 class="text-center">Add Player</h2>
-      <form #prform="ngForm" (ngSubmit)="saveplayer(prform.value)">
+        <h2 class="text-center">Edit Player</h2>
+      <form #prform="ngForm">
         
-        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="playerId">Player Name</label>
+            <input type="text" name="playerId" readonly [(ngModel)]="p.playerId" #playerId=ngModel minlength="5" maxlength="40" class="form-control" required />
+            
+            <span *ngIf="playerName.errors && playerName.errors.pattern">player name not valid</span>
+            
+            <span *ngIf="playerName.errors?.minlength">minimum length should be above 5</span>
+            <!-- <span *ngIf="playerName.errors?.maxlength">minimum length should be below 40</span> -->
+          </div>
         
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
           <label class="form-label" for="playerName">Player Name</label>

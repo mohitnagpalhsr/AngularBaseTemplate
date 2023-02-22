@@ -22,6 +22,8 @@
       </form>
     </div>
 
+    <h4 *ngIf="nodata" class="text-center mx-auto" style="width: 20%; padding: 1%;">No event name found</h4>
+
     <div class="row mb-4">
     </div>
     <div class="row mb-4">
@@ -60,17 +62,19 @@
                       <th scope="col">Event Name</th>
                       <th scope="col">No of slots</th>
                       <th scope="col">Sports Name</th>
+                      <th scope="col">Status</th>
                       <th scope="col" *ngIf="role=='admin'">Cancel Event</th>
                     </tr>
                   </thead>
                   <tbody class="table-group-divider">
-                    <tr>
+                    <tr *ngFor="let e of elist">
                       <!-- <th scope="row">1</th> -->
                       <td>{{e.eventId}}</td>
                 <td>{{e.eventDate | date : 'yyyy-MM-dd'}}</td>
                 <td>{{e.eventName}}</td>
                 <td>{{e.noofSlots}}</td>
                 <td>{{e.sportsName}}</td>
+                <td>{{e.status}}</td>
                 <td *ngIf="role=='admin'">
                     <!--<a routerLink="/edit/{{e.eventId}}">Edit |</a>-->
                    <button type="button" class="btn btn-primary" (click)="clickMethod(e)">Cancel</button>

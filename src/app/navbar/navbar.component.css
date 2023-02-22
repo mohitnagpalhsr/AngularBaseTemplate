@@ -1,9 +1,18 @@
-.navbar-nav > .active > a {
-    color: aqua;
-    /*background-color: chartreuse;*/   
-  }
+/* .navbar-nav > .active > a {
+    color: aqua;  
+  } */
+
   .nav-item > a:hover {
     color: aqua;
+  }
+
+  .nav-item > a:focus{
+    color: aqua;
+    
+  }
+
+  .nav-item > a{
+    color: black;
   }
 
 li { cursor: pointer; }

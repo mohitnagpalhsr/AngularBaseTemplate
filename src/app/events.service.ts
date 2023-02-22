@@ -15,10 +15,19 @@ export class EventsService {
   {
     return this.elist;
   }
-  addevent(e:Event):void{
-    this.elist.push(e)
-  }
   
+  
+  addevent(e:Event):Observable<Event>
+  {
+    return this.httpclient.post<Event>(this.url,e,{
+      headers:new HttpHeaders({
+        'Content-Type':'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Method':'*'
+      })
+    });
+  }
+
   constructor(private httpclient:HttpClient) { }
 
   getevents():Observable<Event[]>{
@@ -26,15 +35,21 @@ export class EventsService {
     return this.elist;
   }
 
-  getEventByName(name:string):Observable<Event>
+  getEventsByName(name:string):Observable<Event>
   {
-    this.elist=this.httpclient.get<Event>(this.url+"/EventByName?name="+name)
+    this.elist=this.httpclient.get(this.url+"/EventsByName?name="+name)
     return this.elist;
   }
 
-  updateevent(e:Event):Observable<Event>
+  getEventById(id:string):Observable<Event>
   {
-    return this.httpclient.post<Event>(this.url,e,{
+    this.elist=this.httpclient.get<Event>(this.url+"/EventById?id="+id)
+    return this.elist;
+  }
+
+  updateevent(id:number,e:Event):Observable<Event>
+  {
+    return this.httpclient.put<Event>(this.url,e,{
       headers:new HttpHeaders ({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',

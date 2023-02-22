@@ -52,31 +52,29 @@
       
       <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
         <label class="form-label" for="playerName">Player Id</label>
-        <input type="number" name="playerId" [(ngModel)]="p.playerId" #playerId=ngModel class="form-control" min="3001" max="4000" required />
+        <input type="number" name="playerId" [(ngModel)]="p.playerId" #playerId=ngModel class="form-control" required />
       </div>
     
       
       <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
         <label class="form-label" for="age">Player Name</label>
-        <input type="text" name="playerName" [(ngModel)]="p.playerName" #playerName=ngModel class="form-control"
-        minlength="5" maxlength="40" required/>
+        <input type="text" name="playerName" [(ngModel)]="p.playerName" #playerName=ngModel class="form-control" maxlength="40" required/>
       </div>
 
       <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
           <label class="form-label" for="contactNumber">Event Id</label>
-          <input type="number" name="eventId" [(ngModel)]="p.eventId" #eventId=ngModel class="form-control"
-          min="2001" max="3000" required />
+          <input type="number" name="eventId" [(ngModel)]="p.eventId" #eventId=ngModel class="form-control" required />
       </div>
 
       <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
           <label class="form-label" for="email">Event Name</label>
           <input type="text" name="eventName" [(ngModel)]="p.eventName" #eventName=ngModel class="form-control"
-          minlength="5" maxlength="40" required />
+           maxlength="40" required />
       </div>
 
       <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
           <label class="form-label" for="gender">Sports Id</label>
-          <input type="number" name="sportsId" [(ngModel)]="p.sportsId" #sportsId=ngModel class="form-control" min="1001" max="2000" required />
+          <input type="number" name="sportsId" [(ngModel)]="p.sportsId" #sportsId=ngModel class="form-control" required />
       </div>
 
       <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">

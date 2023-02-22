@@ -7,4 +7,5 @@ export interface Player
     email:string;
     gender:string;
     sportsName:string;
+    status:string;
 }

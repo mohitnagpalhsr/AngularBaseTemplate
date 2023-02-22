@@ -18,7 +18,7 @@
 <div class="text-center d-block">
 <button type="button" routerLink="viewparticipations" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Participation List</button>
 &nbsp;
-<button type="button" routerLink="addparticipation" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Add Participation</button>
+<button type="button" *ngIf="role=='user'" routerLink="addparticipation" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Add Participation</button>
 &nbsp;
 <button type="button" routerLink="approvedparticipations" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 11%;">Approved Participations</button>
 &nbsp;

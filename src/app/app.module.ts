@@ -37,6 +37,7 @@ import { EditParticipationsComponent } from './participations/edit-participation
 import { ApprovedParticipationsComponent } from './participations/participations-status/approved-participations/approved-participations.component';
 import { PendingParticipationsComponent } from './participations/participations-status/pending-participations/pending-participations.component';
 import { DeclinedParticipationsComponent } from './participations/participations-status/declined-participations/declined-participations.component';
+import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("jwt"); 
@@ -67,7 +68,8 @@ export function tokenGetter() {
     EditParticipationsComponent,
     ApprovedParticipationsComponent,
     PendingParticipationsComponent,
-    DeclinedParticipationsComponent
+    DeclinedParticipationsComponent,
+    EditPlayerComponent
   ],
   imports: [
     BrowserModule,

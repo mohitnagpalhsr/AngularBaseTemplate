@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sport } from 'src/Models/Sport';
 import { SportsService } from 'src/app/sports.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-sport-by-name',
@@ -10,11 +11,14 @@ import { SportsService } from 'src/app/sports.service';
 export class ViewSportByNameComponent {
   sportname="";
   
+  nodata:boolean;
+
   s:Sport={
     sportsId:null,
     sportsType:"",
     noOfPlayers:null,
-    sportsName:""
+    sportsName:"",
+    status:""
   }
   constructor(private sportservice:SportsService) {}
   ngOnInit(): void {
@@ -22,11 +26,14 @@ export class ViewSportByNameComponent {
   }
   getSportByName()
   {
-    this.sportservice.getSportByName(this.sportname).subscribe(
-      data=>{
+
+    this.sportservice.getSportByName(this.sportname).subscribe({
+      next: data => {
         this.s=data;
-        console.log(this.s);
-      }
-    )
+          console.log(this.s);
+          this.nodata=false;
+      },
+      error: (err: HttpErrorResponse) =>{ this.nodata = true; this.s=null; console.log(this.s);}
+      })
   }
 }
