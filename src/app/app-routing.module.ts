@@ -24,12 +24,14 @@ import { DeclinedParticipationsComponent } from './participations/participations
 import { UpdateEventComponent } from './sports/update-event/update-event.component';
 import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 import { Role } from './Models/Role';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 const routes: Routes = [
   {path:'', title:'Home', component:HomeComponent},
   {path:'home', title:'Home', component:HomeComponent},
   {path:'login', title:'Login', component:LoginComponent},
   {path:'register', title:'Register', component:RegisterComponent},
+  {path:'unauthorized', title:'unauthorized', component:UnauthorizedComponent},
   {path:'sports', title:'Sports', component:SportsComponent, canActivate: [AuthGuard]},
   {
     path: '', pathMatch: 'full', redirectTo: 'players'
@@ -56,6 +58,7 @@ const routes: Routes = [
         {
           path: 'editplayer/:id',
           title:'View Players',
+          data: { roles: [Role.admin] },
           component: EditPlayerComponent,
           canActivate: [AuthGuard]
        }

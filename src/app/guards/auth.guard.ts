@@ -18,21 +18,32 @@ export class AuthGuard implements CanActivate  {
     const token = localStorage.getItem("jwt");
     const currentuser = localStorage.getItem("role");
 
+    let currentuser1:number;
+
+    if(currentuser=='admin')
+    currentuser1=1;
+    else
+    currentuser1=2
 
     //checking for access token expiry
     if (token && !this.jwtHelper.isTokenExpired(token)){
       console.log(this.jwtHelper.decodeToken(token))
-      if (currentuser) {
+      if (currentuser1) {
         // check if route is restricted by role
-        if (route.data.roles && route.data.roles[0] === 1) {
+        if (route.data.roles && route.data.roles[0]!==currentuser1) {
           // role not authorised so redirect to home page
-          this.router.navigate(['/']);
+          //console.log(route.data.roles[0])
+          this.router.navigate(['/unauthorized']);
           return false;
         }
-        // authorised so return true
-        return true;
+        else {
+          // authorised so return true
+          return true;
+        }
+        // not logged in so redirect to login page
       }
-      return true;
+      // this.router.navigate(['/login']);
+      // return false;
     }
 
     //checking for refresh token, if refresh token is found, then it will return true else it will navigate us to login
@@ -42,8 +53,27 @@ export class AuthGuard implements CanActivate  {
     if (!isRefreshSuccess) { 
       this.router.navigate(["login"]); 
     }
-
-    return isRefreshSuccess;
+    else
+    {
+      if (currentuser1) {
+        // check if route is restricted by role
+        if (route.data.roles && route.data.roles[0]!==currentuser1) {
+          // role not authorised so redirect to home page
+          //console.log(route.data.roles[0])
+          this.router.navigate(['/unauthorized']);
+          return false;
+        }
+        else {
+          // authorised so return true
+          return true;
+        }
+        // not logged in so redirect to login page
+        
+      }
+    }
+    this.router.navigate(['auth/login']);
+    return false;
+    //return isRefreshSuccess;
   }
 
 
