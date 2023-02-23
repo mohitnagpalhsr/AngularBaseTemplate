@@ -24,6 +24,17 @@ export class PlayersService {
     return this.plist;
   }
 
+  getPlayersBySportName(name:string):Observable<Player[]>
+  {
+    this.plist=this.httpclient.get(this.url+"/PlayersBySportName?name="+name);
+    return this.plist;
+  }
+  getPlayerByName(playerName:string):Observable<Player>
+  {
+    this.plist=this.httpclient.get<Player>(this.url+"/PlayerByName?name="+playerName);
+    return (this.plist);
+  }
+  
   addplayer(p:Player):Observable<Player>
   {
     return this.httpclient.post<Player>(this.url,p,{
@@ -35,17 +46,34 @@ export class PlayersService {
     });
   }
 
-  removeplayer(id:number):Observable<Player>
+  getplayer(playerId:string):Observable<Player>
   {
-    return this.httpclient.delete<Player>(this.url+"/"+id,{
+    this.plist=this.httpclient.get<Player>(this.url+"/PlayerById?id="+playerId);
+    return (this.plist);
+  }
+
+  editplayer(id:number,p:Player):Observable<Player>
+  {
+    return this.httpclient.put<Player>(this.url+"?id="+id,p,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Method':'*'
-        
       })
-      
     });
-    this.getplayers();
   }
+
+  // removeplayer(id:number):Observable<Player>
+  // {
+  //   return this.httpclient.delete<Player>(this.url+"/"+id,{
+  //     headers:new HttpHeaders({
+  //       'Content-Type':'application/json;charset=UTF-8',
+  //       'Access-Control-Allow-Origin':'*',
+  //       'Access-Control-Allow-Method':'*'
+        
+  //     })
+      
+  //   });
+  //   this.getplayers();
+  // }
 }

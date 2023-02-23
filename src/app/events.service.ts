@@ -9,8 +9,10 @@ import {Observable, throwError} from'rxjs';
 
 export class EventsService {
   elist:any;
+  elist2:any;
   url:string="http://localhost:5195/api/Event";
   //url1="http://localhost:5155/api/Event/EventByName?name=event1";
+  //url2="http://localhost:5195/api/Event/EventsHavingSport?name=cricket"
   refreshList():Event[]
   {
     return this.elist;
@@ -33,6 +35,18 @@ export class EventsService {
   getevents():Observable<Event[]>{
     this.elist=this.httpclient.get(this.url);
     return this.elist;
+  }
+
+  eventsHavingSport(name:string):Observable<Event>
+  {
+    this.elist=this.httpclient.get(this.url+"/EventsHavingSport?name="+name)
+    return this.elist;
+  }
+
+  getEventByName(name:string):Observable<Event>
+  {
+    this.elist2=this.httpclient.get(this.url+"/EventByName?name="+name)
+    return this.elist2;
   }
 
   getEventsByName(name:string):Observable<Event>

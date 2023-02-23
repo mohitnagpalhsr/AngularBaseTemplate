@@ -27,14 +27,14 @@ export class ViewPlayersComponent {
       })
   }
 
-  clickMethod(player:Player) {
-    if(confirm("Are you sure to remove "+player.playerName + " as a player?")) {
-      this.playerservice.removeplayer(player.playerId).subscribe()
-      {
-      this.message="Player Removed Successfully";
-      this.playerlist = this.playerlist.filter(item => item.playerId != player.playerId);
-      console.log(this.playerlist.length);
-      }
-    } 
-  }
+  // clickMethod(player:Player) {
+  //   if(confirm("Are you sure to remove "+player.playerName + " as a player?")) {
+  //     this.playerservice.removeplayer(player.playerId).subscribe()
+  //     {
+  //     this.message="Player Removed Successfully";
+  //     this.playerlist = this.playerlist.filter(item => item.playerId != player.playerId);
+  //     console.log(this.playerlist.length);
+  //     }
+  //   } 
+  // }
 }

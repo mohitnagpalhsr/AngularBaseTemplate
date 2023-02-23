@@ -23,6 +23,7 @@ import { PendingParticipationsComponent } from './participations/participations-
 import { DeclinedParticipationsComponent } from './participations/participations-status/declined-participations/declined-participations.component';
 import { UpdateEventComponent } from './sports/update-event/update-event.component';
 import { EditPlayerComponent } from './players/edit-player/edit-player.component';
+import { Role } from './Models/Role';
 
 const routes: Routes = [
   {path:'', title:'Home', component:HomeComponent},
@@ -43,6 +44,7 @@ const routes: Routes = [
            path: 'addplayer',
            title:'Add Player',
            component: AddPlayerComponent,
+           data: { roles: [Role.user] },
            canActivate: [AuthGuard]
         },
         {

@@ -48,12 +48,12 @@
             <tr>
               <!-- <th scope="col">#</th> -->
               <th scope="col">Participation ID</th>
-              <th scope="col">Player ID</th>
-              <th scope="col">Player Name</th>
-              <th scope="col">Event ID</th>
-              <th scope="col">Event Name</th>
               <th scope="col">Sports ID</th>
-              <th scope="col">Sports Name</th>
+              <!-- <th scope="col">Player Name</th> -->
+              <th scope="col">Event ID</th>
+              <!-- <th scope="col">Event Name</th> -->
+              <th scope="col">Player ID</th>
+              <!-- <th scope="col">Sports Name</th> -->
               <th scope="col">Status</th>
               <th scope="col">Comments</th>
               <th scope="col" *ngIf="role=='admin'">Edit Participations</th>
@@ -63,12 +63,12 @@
             <tr *ngFor="let p of plist">
               <!-- <th scope="row">1</th> -->
               <td>{{p.participationId}}</td>
-              <td>{{p.playerId}}</td>
-              <td>{{p. playerName}}</td>
-              <td>{{p.eventId}}</td>
-              <td>{{p.eventName}}</td>
               <td>{{p.sportsId}}</td>
-              <td>{{p.sportsName}}</td>
+              <!-- <td>{{p. playerName}}</td> -->
+              <td>{{p.eventId}}</td>
+              <!-- <td>{{p.eventName}}</td> -->
+              <td>{{p.playerId}}</td>
+              <!-- <td>{{p.sportsName}}</td> -->
               <td>{{p.status}}</td>
               <td>{{p.comments}}</td>
               <td *ngIf="role=='admin'"><button type="button" routerLink="/participations/editparticipation/{{p.participationId}}" class="btn btn-primary">Edit</button></td>

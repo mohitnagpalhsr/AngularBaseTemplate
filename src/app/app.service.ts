@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { register } from 'src/Models/register';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -6,12 +6,17 @@ import { Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AppService {
+export class AppService implements OnInit {
 
 
+  ngOnInit(): void {
+    
+  }
   url:string="http://localhost:5172/api/Register"; 
 
-  constructor(private httpclient:HttpClient) { }
+  constructor(private httpclient:HttpClient) { 
+    
+  }
   
   registerUser(s:register):Observable<register>
   {

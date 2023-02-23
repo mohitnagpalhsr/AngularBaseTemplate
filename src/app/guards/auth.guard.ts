@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Role } from '../Models/Role';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,22 @@ export class AuthGuard implements CanActivate  {
   
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const token = localStorage.getItem("jwt");
-    const user = this.auths.role;
+    const currentuser = localStorage.getItem("role");
+
 
     //checking for access token expiry
     if (token && !this.jwtHelper.isTokenExpired(token)){
       console.log(this.jwtHelper.decodeToken(token))
+      if (currentuser) {
+        // check if route is restricted by role
+        if (route.data.roles && route.data.roles[0] === 1) {
+          // role not authorised so redirect to home page
+          this.router.navigate(['/']);
+          return false;
+        }
+        // authorised so return true
+        return true;
+      }
       return true;
     }
 

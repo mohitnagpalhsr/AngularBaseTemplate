@@ -11,8 +11,10 @@ export class HomeComponent {
   constructor(private jwtHelper: JwtHelperService) { }
   
   role=localStorage.getItem("role");
+  
 
   ngOnInit(): void {
+
   }
 
   isUserAuthenticated = (): boolean => {
