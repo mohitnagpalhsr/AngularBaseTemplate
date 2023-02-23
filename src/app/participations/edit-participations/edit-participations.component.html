@@ -69,7 +69,7 @@
 
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
           <label class="form-label" for="playerName">Player Id</label>
-          <input type="number" name="playerId" [ngModel]="p?.playerId" #playerId=ngModel class="form-control" required />
+          <input type="number" name="playerId" readonly [ngModel]="p?.playerId" #playerId=ngModel class="form-control" required />
         </div>
       
         
@@ -80,7 +80,7 @@
   
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
             <label class="form-label" for="eventId">Event Id</label>
-            <input type="number" name="eventId" [ngModel]="p?.eventId" #eventId=ngModel class="form-control" required />
+            <input type="number" name="eventId" readonly [ngModel]="p?.eventId" #eventId=ngModel class="form-control" required />
         </div>
   
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
@@ -90,7 +90,7 @@
   
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
             <label class="form-label" for="gender">Sports Id</label>
-            <input type="number" name="sportsId" [ngModel]="p?.sportsId" #sportsId=ngModel class="form-control" required />
+            <input type="number" name="sportsId" readonly [ngModel]="p?.sportsId" #sportsId=ngModel class="form-control" required />
         </div>
         
         
@@ -104,7 +104,7 @@
            <select class="form-select" aria-label="Default select example" (change)="value1($event)"  name="sportsName" #sportsName=ngModel [ngModel]="p?.sportsId" required>
   
               <option disabled selected value>select the sport name</option>
-              <option *ngFor="let s of sportsname" [ngValue]="s.sportsId">{{s.sportsName}}</option>
+              <option *ngFor="let s of sportsname" [ngValue]="s.sportsName">{{s.sportsName}}</option>
             </select>
         <!-- </div> -->
           <!-- <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span> -->

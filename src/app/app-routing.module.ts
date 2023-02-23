@@ -101,6 +101,7 @@ const routes: Routes = [
       {
         path: 'addevent',
         title:'Create new event',
+        data: { roles: [Role.admin] },
         component: CreateEventComponent,
         canActivate: [AuthGuard]
       },
@@ -108,6 +109,7 @@ const routes: Routes = [
       {
         path: 'editevent/:id',
         component: UpdateEventComponent,
+        data: { roles: [Role.admin] },
         canActivate: [AuthGuard]
       }
 
@@ -142,6 +144,7 @@ const routes: Routes = [
         {
           path: 'editparticipation/:id',
           title:'Edit Participations',
+          data: { roles: [Role.admin] },
           component: EditParticipationsComponent,
           canActivate: [AuthGuard]
         },
