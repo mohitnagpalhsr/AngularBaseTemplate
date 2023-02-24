@@ -11,7 +11,7 @@ export class PlayersService {
 
   p:Player={playerId:null,playerName:"",age:null,contactNumber:"",email:"",gender:"",sportsName:"",status:""};
   plist:any;
-  url:string="http://localhost:5009/api/Players";
+  url:string="https://localhost:5081/api/Players";
   constructor(private httpclient:HttpClient) 
   { 
 

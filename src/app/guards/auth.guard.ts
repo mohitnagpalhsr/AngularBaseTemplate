@@ -17,6 +17,13 @@ export class AuthGuard implements CanActivate  {
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const token = localStorage.getItem("jwt");
     const currentuser = localStorage.getItem("role");
+    //const token = localStorage.getItem("token");
+    const decodedToken = this.jwtHelper.decodeToken(token);
+    //console.log(decodedToken);
+    // console.log(currentuser);
+    //const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
+    
+    //return role === 'Administrator';
 
     let currentuser1:number;
 
@@ -71,7 +78,7 @@ export class AuthGuard implements CanActivate  {
         
       }
     }
-    this.router.navigate(['auth/login']);
+    this.router.navigate(['/login']);
     return false;
     //return isRefreshSuccess;
   }

@@ -10,7 +10,7 @@ import {Observable, throwError} from'rxjs';
 export class EventsService {
   elist:any;
   elist2:any;
-  url:string="http://localhost:5195/api/Event";
+  url:string="https://localhost:5081/api/Event";
   //url1="http://localhost:5155/api/Event/EventByName?name=event1";
   //url2="http://localhost:5195/api/Event/EventsHavingSport?name=cricket"
   refreshList():Event[]

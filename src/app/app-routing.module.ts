@@ -132,6 +132,7 @@ const routes: Routes = [
         {
            path: 'addparticipation',
            title:'Add Participation',
+           data: { roles: [Role.user] },
            component: AddParticipationComponent,
            canActivate: [AuthGuard]
         },

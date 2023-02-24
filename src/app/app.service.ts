@@ -12,7 +12,7 @@ export class AppService implements OnInit {
   ngOnInit(): void {
     
   }
-  url:string="http://localhost:5172/api/Register"; 
+  url:string="https://localhost:5081/api/Register"; 
 
   constructor(private httpclient:HttpClient) { 
     

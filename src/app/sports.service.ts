@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 export class SportsService {
   slist:any;
   
-  url:string="http://localhost:5195/api/Sport";
+  url:string="https://localhost:5081/api/Sport";
   
 
   constructor(private httpclient:HttpClient) {}

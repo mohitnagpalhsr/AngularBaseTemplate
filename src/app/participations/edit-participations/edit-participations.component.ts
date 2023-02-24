@@ -47,10 +47,11 @@ export class EditParticipationsComponent {
   Update(participation:Participation)
   {
     let id=participation.participationId;
-    this.participationservice.editparticipation(id,participation).subscribe(
-      data=>{
+    this.participationservice.editparticipation(id,participation).subscribe({
+      next:data=>{
         this.message="Participation Updated Successfully";
-      }
-    )
+      },
+      error: (err: HttpErrorResponse) => this.message="Failed to add participation data"
+  })
   }
 }
