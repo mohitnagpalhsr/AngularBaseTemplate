@@ -66,7 +66,7 @@ export class CreateEventComponent implements OnInit {
     this.eventservice.addevent(data).subscribe({
       next:data=>{
         this.message="Event Added";
-        this.nodata = true;
+        this.nodata = false;
       },
       error: (err: HttpErrorResponse) => this.nodata = true
     })

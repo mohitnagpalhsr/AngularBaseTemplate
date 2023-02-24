@@ -75,7 +75,7 @@
         
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
           <label class="form-label" for="playerName">Player Name</label>
-          <input type="text" name="playerName" [ngModel]="p?.playerName" #playerName=ngModel class="form-control" required/>
+          <input type="text" name="playerName" readonly [ngModel]="p?.playerName" #playerName=ngModel class="form-control" required/>
         </div>
   
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
@@ -85,7 +85,7 @@
   
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
             <label class="form-label" for="eventName">Event Name</label>
-            <input type="text" name="eventName" [ngModel]="p?.eventName" #eventName=ngModel class="form-control" required />
+            <input type="text" name="eventName" readonly [ngModel]="p?.eventName" #eventName=ngModel class="form-control" required />
         </div>
   
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
@@ -93,10 +93,13 @@
             <input type="number" name="sportsId" readonly [ngModel]="p?.sportsId" #sportsId=ngModel class="form-control" required />
         </div>
         
-        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="sportsName">Sports Name</label>
+          <input type="text" name="sportsName" readonly [ngModel]="p?.sportsName" #sportsName=ngModel class="form-control" required />
+      </div>
         
 
-        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <!-- <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
           
 
             <label class="form-label" for="sportsName">Sports Name</label>
@@ -105,12 +108,12 @@
   
               <option disabled selected value>select the sport name</option>
               <option *ngFor="let s of sportsname" [ngValue]="s.sportsName">{{s.sportsName}}</option>
-            </select>
+            </select> -->
         <!-- </div> -->
           <!-- <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span> -->
 
-          <h4 *ngIf="sporterror" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to load sports name</h4>
-      </div>
+          <!-- <h4 *ngIf="sporterror" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to load sports name</h4>
+      </div> -->
 
         <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
 

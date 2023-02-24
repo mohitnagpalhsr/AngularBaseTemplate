@@ -108,5 +108,5 @@
         <button type="button" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!prform.valid" style="background-color: #3b71ca; width: 40%;">Add</button>
         
         <h3 *ngIf="message!=null">{{message}}</h3>
-        <!-- <h3 *ngIf="nodata" class="text-center mx-auto" style="width: 20%; padding: 1%;">No event name found</h3> -->
-        </div>
+        <h3 *ngIf="nodata" class="text-center mx-auto" style="width: 20%;">Error Occured : Event not added</h3>
+</div>
